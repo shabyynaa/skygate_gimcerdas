@@ -1,0 +1,363 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &306384689572473916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594983055343884313}
+  - component: {fileID: 7185442315317949937}
+  - component: {fileID: 3788556549776815175}
+  - component: {fileID: 6740313612607613049}
+  - component: {fileID: 8308693171758966089}
+  - component: {fileID: 1499935927388766724}
+  - component: {fileID: 7626760637394096250}
+  - component: {fileID: 2319942094552394667}
+  - component: {fileID: 5320368496698108661}
+  - component: {fileID: 4567914780656550462}
+  - component: {fileID: 7857769750074487202}
+  - component: {fileID: 5996769928304231185}
+  - component: {fileID: 861695207579956171}
+  - component: {fileID: 6829812146970477932}
+  - component: {fileID: 1684201249299853015}
+  m_Layer: 0
+  m_Name: GameSystems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594983055343884313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7185442315317949937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cab26ce49db814abc947575a021ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.Core.GameInputReader
+  inputActionAsset: {fileID: 0}
+--- !u!114 &3788556549776815175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212a885a626aebd4d8f4a62f00eabb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.Core.CheckpointManager
+  respawnDelay: 1.35
+--- !u!114 &6740313612607613049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf7d5c7d07855a48b0d041d892813ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.DDA.TelemetryManager
+--- !u!114 &8308693171758966089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc34c47c63997d9488cc6a1ea7efbea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.DDA.PlayerModelManager
+  model:
+    normHP: 1
+    normDamage: 1
+    normTime: 1
+    normSurvival: 1
+    skillScore: 0.55
+    smoothedSkill: 0.55
+    confidence: 0.25
+    roomsEvaluated: 0
+    totalGatesChosen: 0
+    riskyGatesChosen: 0
+    playstyleLabel: Balanced
+  targetRoomClearTime: 35
+--- !u!114 &1499935927388766724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4278ed765981c428f250d27ee8c651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.DDA.DDAManager
+  isAdaptiveEnabled: 1
+  currentMultiplier: 1
+--- !u!114 &7626760637394096250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09d22b14f969984585e060ded808b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.DDA.RunLogExporter
+--- !u!114 &2319942094552394667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8875f6cef2832e248883178bf96cdbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.PCG.IslandContentSpawner
+--- !u!114 &5320368496698108661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
+--- !u!114 &4567914780656550462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d804a81bcab30824194cecd9d3ca8ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.PCG.RuntimeNavMeshBuilder
+--- !u!114 &7857769750074487202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce9e6ccd66712542b75c527f8cd0592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.PCG.BranchingIslandGenerator
+  config: {fileID: 11400000, guid: d663dbbc8d55e96448a4a54c326ff48b, type: 2}
+  worldRoot: {fileID: 0}
+--- !u!114 &5996769928304231185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa64509062bf1b84598ce474d5c728c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.Combat.FloatingDamageSpawner
+  floatingTextPrefab: {fileID: 3809937092371514416, guid: 1c74cbfcae6eebe4a8cdf0ac0ca1f145, type: 3}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  criticalOrStunColor: {r: 1, g: 0.85, b: 0.15, a: 1}
+  shieldAbsorbColor: {r: 0.28, g: 0.82, b: 1, a: 1}
+  floatDuration: 0.75
+  floatHeight: 1.15
+--- !u!82 &861695207579956171
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6829812146970477932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b502c7227c6a44b9c9de8f8875da76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.Audio.AudioManager
+  sfxSwing: {fileID: 8300000, guid: c60a796a149f9b245b9d566cf174af08, type: 3}
+  sfxHitImpact: {fileID: 0}
+  sfxHeavyImpact: {fileID: 0}
+  sfxDodge: {fileID: 8300000, guid: 40568418cd3788e488c313823a4de33d, type: 3}
+  sfxGateChoose: {fileID: 8300000, guid: d7506a428110e954f91827af54299b7b, type: 3}
+  sfxRoomClear: {fileID: 8300000, guid: 45f22507dc609074da3a059d283aea7d, type: 3}
+  sfxPlayerHurt: {fileID: 0}
+--- !u!114 &1684201249299853015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306384689572473916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc399db19fcd874ea1bfe739c885c0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.Core.GameManager
+  defaultSeed: 12345
+  startWithRandomSeed: 0
+  adaptiveMode: 1
+  autoGenerateOnStart: 1
+  islandGenerator: {fileID: 7857769750074487202}
+  ddaManager: {fileID: 1499935927388766724}
+  checkpointManager: {fileID: 3788556549776815175}
+  runLogExporter: {fileID: 7626760637394096250}
+  playerInstance: {fileID: 0}
+  playerPrefab: {fileID: 8568683074644467569, guid: 80cb845b5a6aaed45b0e249f7350bbd2, type: 3}
+  mainCameraRig: {fileID: 0}

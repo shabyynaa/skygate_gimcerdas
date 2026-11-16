@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44834e3bae89fc24e80e2e10d5e645a1, type: 3}
+  m_Name: MG_DefaultPresets
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.MathGate.MathGateSO
+  safeOptions:
+  - gateTitle: 'GATE A [SAFE]'
+    isHighRisk: 0
+    targetIslandId: 0
+    positiveModifier:
+      effectType: 1
+      value: 25
+      allowOverhealShield: 1
+    negativeModifier:
+      effectType: 0
+      value: 0
+      allowOverhealShield: 0
+  riskyOptions:
+  - gateTitle: 'GATE B [RISK]'
+    isHighRisk: 1
+    targetIslandId: 0
+    positiveModifier:
+      effectType: 2
+      value: 6
+      allowOverhealShield: 0
+    negativeModifier:
+      effectType: 6
+      value: 15
+      allowOverhealShield: 0

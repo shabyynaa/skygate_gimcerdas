@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4254ae71cb1c0c48b3bf29eb0e047d4, type: 3}
+  m_Name: EA_SkySprite
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.EnemyAI.EnemyArchetypeSO
+  archetypeName: Sky Sprite
+  roleType: 1
+  maxHP: 55
+  patrolSpeed: 2.5
+  chaseSpeed: 4.2
+  baseDamage: 12
+  attackRange: 11
+  windupDuration: 0.5
+  attackCooldown: 1.8
+  detectRadius: 14
+  fovAngle: 140
+  closeAlertRadius: 2.2
+  pursuitPersistenceMultiplier: 1.4
+  losMemoryDuration: 2
+  hasArmor: 0
+  armorReduction: 0.35
+  canFlee: 1
+  fleeThresholdRatio: 0.25
+  maxFleeDuration: 2.5
+  isRanged: 1
+  idealMinDistance: 6
+  idealMaxDistance: 10
+  kiteRetreatDistance: 4
+  projectileSpeed: 11.5
+  avoidsSunBeacon: 0
+  lifeStealAmount: 5
+  canBullRush: 0
+  chargeMinDistance: 5
+  chargeMaxDistance: 12
+  chargeCooldown: 7
+  chargeWindupDuration: 0.8
+  chargeSpeed: 9
+  chargeDamage: 26
+  stunDuration: 3.5
+  stunDamageTakenMultiplier: 1.5
+  phase2Speed: 6.6
+  phase2Damage: 20
+  phase2Cooldown: 1.05
+  phase2AoEWindup: 0.9
+  phase2AoERadius: 4.2

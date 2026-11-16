@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e85e5a8c1e998e42bf27c39d4fd5089, type: 3}
+  m_Name: PCGConfig_Default
+  m_EditorClassIdentifier: Assembly-CSharp::SkyGate.PCG.PCGConfigSO
+  terraceElevationStep: 2.5
+  depthForwardSpacing: 32
+  branchLateralOffset: 14.5
+  normalArenaSize: {x: 22, y: 22}
+  bossArenaSize: {x: 26, y: 26}
+  safeZoneRadius: 5
+  pillarMinSpacing: 3.5
+  objectiveMinSpacing: 4.5
+  enemyMinSpacing: 2.5
+  maxAttemptsPerObject: 30
+  islandPlatformPrefab: {fileID: 1622228026454226761, guid: 17e080654871180458e18801e586f796, type: 3}
+  archedBridgePrefab: {fileID: 2999712121999582250, guid: d2e32cb83b5bdaf4b8267584b0b0ec5a, type: 3}
+  lockdownBarrierPrefab: {fileID: 294703760213489445, guid: 26746a21915e6114d9998248418f97f8, type: 3}
+  mathGateDoorPrefab: {fileID: 7762774675244148892, guid: a5e9ad37f6f802b4b9d536e5c5bf56f2, type: 3}
+  stunPillarPrefab: {fileID: 4432820840813405018, guid: f595849bed28f8d4880244877201211f, type: 3}
+  sunBeaconPrefab: {fileID: 8694998441281831988, guid: 650a852995b48c54c9f352d3edba543c, type: 3}
+  runeAnchorPrefab: {fileID: 3404161689097249674, guid: 2198fb8ea67207948a48d1e178382aed, type: 3}
+  stormCrystalPrefab: {fileID: 7936366575291781450, guid: 729021fec854b2549b3bdd6a1c9c0068, type: 3}
+  healOrbPrefab: {fileID: 1332085349620521460, guid: c66edc74399f3af40b2387b3f32cb3db, type: 3}
+  victoryChestPrefab: {fileID: 3696741598590087152, guid: e2f901cb8dd3da342987ef41c6c98432, type: 3}
+  backdropPrefabs:
+  - {fileID: 1437987951999266949, guid: 4bdb5a61ef81e0849b75dd9827976e51, type: 3}
+  - {fileID: 1562900646321799027, guid: b4d19bb8df879024d80078c75e50829e, type: 3}
+  - {fileID: 4111217686099388944, guid: 315f2d5a4294547418f63f469369eab1, type: 3}
+  - {fileID: 8805987422966089637, guid: 3123c8b0b7e4ba540b8ed1bd8bbbe88a, type: 3}
+  breezeImpPrefab: {fileID: 1657917140767056297, guid: 540be4f7da1b8c744be4be81221e7f60, type: 3}
+  breezeImpArchetype: {fileID: 11400000, guid: 233fce2edc2c21944a73a01ef7df3c2f, type: 2}
+  skySpritePrefab: {fileID: 6236084205004199648, guid: 9c63f9d807d2bc449bc7a12f91237fbc, type: 3}
+  skySpriteArchetype: {fileID: 11400000, guid: c8618c03541e92a4a8eddb13b5738d07, type: 2}
+  duskWispPrefab: {fileID: 426555172760027190, guid: 1be978d10d6c46e48982b80a94782404, type: 3}
+  duskWispArchetype: {fileID: 11400000, guid: 8a138fe93d9bfeb40b7ba1799d763785, type: 2}
+  crystalGolemPrefab: {fileID: 6365578814380694716, guid: 4a1a2c5cc3f1b6f48b6644431274762d, type: 3}
+  crystalGolemArchetype: {fileID: 11400000, guid: b80eda06c008bf34f9efa3253e9f493c, type: 2}
+  zephyrGuardianPrefab: {fileID: 695320637068221430, guid: faa0d4234c19c4d40a22a476b7c531a3, type: 3}
+  zephyrGuardianArchetype: {fileID: 11400000, guid: 12bbed56ebb267f41b1b817bc93e3e93, type: 2}
