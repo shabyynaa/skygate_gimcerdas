@@ -184,12 +184,11 @@ namespace SkyGate.PCG
                 id = 1,
                 depth = 1,
                 branchIndex = -1,
-                encounterType = midPool[rng.Next(0, 2)], // Skirmish or SunBeacon
+                encounterType = midPool[rng.Next(0, 2)],
                 worldPosition = new Vector3(-xBranch, yStep * 1f, zStep * 1f),
                 arenaSize = config.normalArenaSize
             };
             d1Left.nextNodeIds.Add(3);
-            d1Left.nextNodeIds.Add(4);
 
             var d1Right = new IslandGraphNode
             {
@@ -200,7 +199,6 @@ namespace SkyGate.PCG
                 worldPosition = new Vector3(xBranch, yStep * 1f, zStep * 1f),
                 arenaSize = config.normalArenaSize
             };
-            d1Right.nextNodeIds.Add(3);
             d1Right.nextNodeIds.Add(4);
             graphNodes.Add(d1Left);
             graphNodes.Add(d1Right);
@@ -216,7 +214,6 @@ namespace SkyGate.PCG
                 arenaSize = config.normalArenaSize
             };
             d2Left.nextNodeIds.Add(5);
-            d2Left.nextNodeIds.Add(6);
 
             var d2Right = new IslandGraphNode
             {
@@ -227,7 +224,6 @@ namespace SkyGate.PCG
                 worldPosition = new Vector3(xBranch, yStep * 2f, zStep * 2f),
                 arenaSize = config.normalArenaSize
             };
-            d2Right.nextNodeIds.Add(5);
             d2Right.nextNodeIds.Add(6);
             graphNodes.Add(d2Left);
             graphNodes.Add(d2Right);
@@ -286,7 +282,6 @@ namespace SkyGate.PCG
 
             islandObj.name = $"Island_D{gNode.depth}_ID{gNode.id}_{gNode.encounterType}";
 
-            // Scale platform slab & visual stone terrace proportionally if arenaSize differs (e.g. BossSanctum 26x26)
             Transform slab = islandObj.transform.Find("PlatformSlab");
             if (slab != null)
             {
@@ -298,7 +293,6 @@ namespace SkyGate.PCG
                 visualArch.localScale = new Vector3(gNode.arenaSize.x / 22f, 1f, gNode.arenaSize.y / 22f);
             }
 
-            // Entrance spawn anchor on South edge
             GameObject entranceObj = new GameObject("EntranceSpawnPoint");
             entranceObj.transform.SetParent(islandObj.transform, false);
             entranceObj.transform.localPosition = new Vector3(0f, 0.1f, -gNode.arenaSize.y * 0.38f);
@@ -307,7 +301,6 @@ namespace SkyGate.PCG
             if (node == null) node = islandObj.AddComponent<IslandNode>();
             node.ConfigureIsland(gNode.id, gNode.depth, gNode.encounterType, gNode.arenaSize, entranceObj.transform);
 
-            // Lockdown Barrier at North Exit (South foreground kept < 0.6m clear for camera per ASSET_CONTRACT Section 3.2)
             if (config.lockdownBarrierPrefab != null)
             {
                 Vector3 northBarrierPos = gNode.worldPosition + new Vector3(0f, 0.9f, gNode.arenaSize.y * 0.48f);
@@ -316,7 +309,6 @@ namespace SkyGate.PCG
                 node.RegisterLockdownBarrier(northBarrier);
             }
 
-            // Room Trigger Zone & Challenge Component
             GameObject zoneObj = new GameObject("RoomZoneTrigger");
             zoneObj.tag = "RoomZone";
             int triggerLayer = LayerMask.NameToLayer("TriggerZone");
@@ -361,8 +353,13 @@ namespace SkyGate.PCG
             int nextCount = fromNode.nextNodeIds.Count;
             if (nextCount == 0) return;
 
+            // Jika menuju Boss (Depth 3 ke Depth 4), kita paksa agar tetap membuat 2 jalur (Kiri & Kanan) 
+            // meskipun target ID-nya sama (ID 7), supaya jembatan dan gerbangnya jadi sepasang (kembar).
+            bool isBossTransition = (fromNode.depth == 3 && nextCount == 1);
+            int effectiveCount = isBossTransition ? 2 : nextCount;
+
             int targetA = fromNode.nextNodeIds[0];
-            int targetB = nextCount > 1 ? fromNode.nextNodeIds[1] : targetA;
+            int targetB = effectiveCount > 1 ? (isBossTransition ? targetA : fromNode.nextNodeIds[1]) : targetA;
 
             MathGateSelector.GenerateGatePair(
                 rng,
@@ -376,16 +373,18 @@ namespace SkyGate.PCG
             MathGateDoor doorA = null;
             MathGateDoor doorB = null;
 
-            for (int i = 0; i < nextCount; i++)
+            for (int i = 0; i < effectiveCount; i++)
             {
-                int toId = fromNode.nextNodeIds[i];
+                int toId = isBossTransition ? fromNode.nextNodeIds[0] : fromNode.nextNodeIds[i];
                 if (!lookup.TryGetValue(toId, out IslandGraphNode toNode)) continue;
 
-                // Exit anchor on North edge of fromNode, Entrance anchor on South edge of toNode
-                float xOffset = nextCount == 1 ? 0f : (i == 0 ? -3.6f : 3.6f);
-                Vector3 startEdge = fromNode.worldPosition + new Vector3(xOffset, 0f, fromNode.arenaSize.y * 0.48f);
-                Vector3 endEdge = toNode.worldPosition + new Vector3(0f, 0f, -toNode.arenaSize.y * 0.48f);
+                // Beri jarak offset X agar kedua jembatan terpisah ke kiri dan kanan dengan rapi
+                float xOffset = (effectiveCount > 1) ? (i == 0 ? -3.5f : 3.5f) : 0f;
 
+                Vector3 startEdge = fromNode.worldPosition + new Vector3(xOffset, 0f, fromNode.arenaSize.y * 0.48f);
+                Vector3 endEdge = toNode.worldPosition + new Vector3(xOffset * 0.3f, 0f, -toNode.arenaSize.y * 0.48f);
+
+                // Buat segmen jembatan fisik untuk masing-masing sisi
                 SpawnBridgeSegment(startEdge, endEdge);
 
                 if (config.mathGateDoorPrefab != null)
@@ -408,20 +407,6 @@ namespace SkyGate.PCG
                         if (i == 0) doorA = door;
                         else if (i == 1) doorB = door;
                     }
-                }
-            }
-
-            // If only 1 physical bridge leads to Boss (Depth 3 -> Depth 4), place both Gate A & Gate B side-by-side at the bridge entrance
-            if (nextCount == 1 && config.mathGateDoorPrefab != null && doorA != null)
-            {
-                Vector3 gateBPos = doorA.transform.position + doorA.transform.right * 3.8f;
-                doorA.transform.position -= doorA.transform.right * 1.9f;
-                GameObject gateBObj = Instantiate(config.mathGateDoorPrefab, gateBPos, doorA.transform.rotation, fromNode.spawnedIsland.transform);
-                doorB = gateBObj.GetComponent<MathGateDoor>();
-                if (doorB != null)
-                {
-                    doorB.ConfigureGate(riskyData, doorA, false);
-                    fromNode.spawnedIsland.RegisterMathGateDoor(doorB);
                 }
             }
 
